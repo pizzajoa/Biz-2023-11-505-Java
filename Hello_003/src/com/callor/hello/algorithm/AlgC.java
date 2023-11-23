@@ -11,15 +11,19 @@ public class AlgC {
 		 * 이 결과값을 변수에 할당하려면 변수는 int형이어야 한다
 		 * 하지만 num1 % 2 == 0은 실제적으로 (num1 % 2) == 0과 같다
 		 * 이 결과값을 변수에 할당하려면 변수는 boolean형이어야 한다
-		 * 이때 byes에 할당된 값은 num1의 값이 짱수이면 true 홀수이면 false가 될 것이다
+		 * 이때 byes에 할당된 값은 num1의 값이 짝수이면 true 홀수이면 false가 될 것이다
 		 */ 
 		
 		bYes = num1 % 2 == 0;
 		
 		if(bYes) { // 
-			
-			
+				
 		}
-		System.out.println("짝수");
+		System.out.println("짝수"); // 조건명령문
+		
+		if(num1 % 2 == 0) {
+			System.out.println("짝수");
+		}
+		
 	}
 }
