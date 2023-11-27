@@ -6,7 +6,7 @@ public class PrimeC {
 		int num1 = 7;
 		boolean noPrime = false;
 		int index = 2;
-		for (int index = 0; index < num1; index++) {
+		for ( index = 2; index < num1; index++) {
 			if (num1 % index == 0) { // prime가 아니다
 				noPrime = true;
 				break;
