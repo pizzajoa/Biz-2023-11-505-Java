@@ -2,25 +2,25 @@ package com.callor.hello.prime;
 
 public class PrimeH {
 	public static void main(String[] args) {
-		System.out.println("===============================");
-		System.out.println("2~100까지 수 중 소수만 출력하기");
-		System.out.println("-------------------------------");
-		for (int i = 2; i < 100; i++) { // 2~100까지 설정
+		System.out.println("==================================");
 
-			int num = 0;
-			int sum = 0;
-			for (int index = 2; index < i; index++) { // 나눌 값
-				if (i % index == 0) {
-					
-					num = num + 1;
-					sum = i + sum;
+		int sum = 0;
+		for (int i = 1; i < 100; i++) { // 범위 설정
+
+			int num = i + 1; // 나눌 항목
+			int index = 0;
+			for (index = 2; index < num; index++) {
+				if ((num) % index == 0) { //나눈 값이 0이 되면 소수아님
+					break;
 				}
 			}
-			if (num == 0) { // 횟차 올라가면 소수가 아님
-				System.out.println(i + "는 소수임");
+			if (index < num) {
+			} else {
+				sum = num + sum;
 			}
 		}
-		System.out.println("===============================");
-		
+		System.out.println("2 ~ 100까지 수 중 소수들의 합 : " + sum);
+		System.out.println("==================================");
 	}
+
 }
