@@ -1,6 +1,6 @@
 package com.callor.hello.arrays;
 
-public class ArraysD {
+public class ArraysDB {
 	public static void main(String[] args) {
 
 		int STUDENT_LENGTH = 10;
@@ -11,29 +11,31 @@ public class ArraysD {
 		System.out.println("=".repeat(50));
 		System.out.println("샛별반 성적표");
 		System.out.println("-".repeat(50));
-		System.out.println("국어 영어 수학 총점 평균");
+		System.out.println("국어\t영어\t수학\t총점\t평균");
 		System.out.println("-".repeat(50));
 
 		for (int i = 0; i < scoreKors.length; i++) {
 			int rndScore = (int) (Math.random() * 50) + 51;
 			scoreKors[i] = rndScore;
 		}
-		for (int i = 0; i < scoreKors.length; i++) {
+		for (int i = 0; i < scoreEng.length; i++) {
 			int rndScore = (int) (Math.random() * 50) + 51;
 			scoreEng[i] = rndScore;
 		}
-		for (int i = 0; i < scoreKors.length; i++) {
+		for (int i = 0; i < scoreMath.length; i++) {
 			int rndScore = (int) (Math.random() * 50) + 51;
 			scoreMath[i] = rndScore;
 		}
 
-		int sum = 0;
+		
 		float avg = 0;
 		for (int i = 0; i < scoreKors.length; i++) {
-			sum = scoreKors[i] + scoreEng[i] + scoreMath[i];
+			int sum = scoreKors[i];
+			sum += scoreEng[i];
+			sum +=scoreMath[i];
 
 			avg = (float)sum / 3;
-			System.out.printf("%d ,%d ,%d ,%d ,%.2f\n", scoreKors[i], scoreEng[i], scoreMath[i], sum, avg);
+			System.out.printf("%2d\t %2d\t %2d\t %2d\t %.2f\n", scoreKors[i], scoreEng[i], scoreMath[i], sum, avg);
 
 		}
 		System.out.println("=".repeat(50));
