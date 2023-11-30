@@ -26,7 +26,7 @@ public class InputG {
 			if (num >= 2 ) {
 				System.out.println("값은 2이상으로 입력해야 합니다 : ");
 				System.out.println("입력한 값 : " + num);
-				continue;
+				
 			}
 			for (int i = 2; i < num; i++) {
 				if (num % i == 0) {
