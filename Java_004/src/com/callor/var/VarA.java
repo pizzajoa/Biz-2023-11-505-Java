@@ -23,8 +23,13 @@ public class VarA {
 		NumberService numberService2 = new NumberService();
 		
 		int result = numberService1.add(30, 40);
+		String nation1 ="대한민국";
+		String nation2 = new String("대한민국");
 		
 		System.out.println(result);
+		System.out.println(nation1);
+		System.out.println(nation2);
+		
 		
 	}
 	
