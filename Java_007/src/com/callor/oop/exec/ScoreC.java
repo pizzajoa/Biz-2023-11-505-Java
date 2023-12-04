@@ -21,7 +21,7 @@ public class ScoreC {
 			int rndKor = (int)(Math.random()*50) + 50;
 			int rndEng = (int)(Math.random()*50) + 50;
 			int rndMath = (int)(Math.random()*50) + 50;
-	
+	// 코드 수정하기
 			scores[i].scoreKor = rndKor;
 			scores[i].scoreEng = rndEng;
 			scores[i].scoreMath = rndMath;
