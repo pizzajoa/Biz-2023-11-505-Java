@@ -19,7 +19,7 @@ public class InputD {
 		System.out.println("계산기를 종료하려면 QUIT를 입력해 주세요");
 
 		while (true) {
-			System.out.print("정수(QUIT: 끝내기) 1 >> ");
+			System.out.print("정수(QUIT: 끝내기)  >> ");
 			String str1 = scan.nextLine();
 			System.out.println(str1 == "QUIT");
 			if(str1.equals("QUIT")) {
