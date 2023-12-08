@@ -89,7 +89,7 @@ public class OnedayA {
 				System.out.printf("%5d\t", sums[i]);
 				System.out.printf("%5.2f\n", avgs[i]);
 			}
-			System.out.println("-".repeat(100));
+			System.out.println("-".repeat(80));
 			System.out.print("총점\t");
 			
 			int totalOfTotalSum = 0;
