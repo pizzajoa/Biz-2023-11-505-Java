@@ -4,7 +4,17 @@ import java.util.Scanner;
 
 public class NumberService {
 	
-	
+	/*
+	 * Service 클래스에서는
+	 * 변수, 객체를 여러 method 가 사용해야 하는 경우가 많다
+	 * 그러한 변수, 객체는 클래스 영역에서 선언만 하고
+	 * 생성자에서 초기화(사용준비)를 해야 한다.
+	 * 
+	 * NumberService 클래스에서는 Scanner 를 여러 method 가
+	 * 사용할 것이라는 전제하에 클래스 영역에서 선언하고
+	 * 생성자에 초기화 한다
+	 * 
+	 */
 	private Scanner scan = null;
 	public NumberService() {
 		scan = new Scanner(System.in);

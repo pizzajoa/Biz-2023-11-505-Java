@@ -5,34 +5,61 @@ import java.util.List;
 
 public class ScoreService {
 
+	// 클래스 영역에서는 선언만 하고
 	private List<ScoreDto> scores = null;
 	private NumberService numService = null;
 
+	// 생성자에서
 	public ScoreService() {
-
+		// 초기화(사용할 준비하기)
 		scores = new ArrayList<ScoreDto>();
 		numService = new NumberService();
 	}
 
+	/*
+	 * inputScore() method 를 매개변수 없이 호출하면 method 내부에서 start 값과 end 값 임의로 생성하고 현재
+	 * class에 있는 inputScore(start, end) 에게 전달하기
+	 */
 	public void inputScore() {
 
 		int start = 0;
 		int end = 100;
-
+		// this : ScoreService 클래스를 나타내는 특별한 변수
 		this.inputScore(start, end);
-	}
+	} // end inputScore()
 
 	public void inputScore(int start, int end) {
 
-		String strStdNum = "230000";
+		/*
+		 * 점수를 저장할 때 학번을 자동생성하여 저장하고싶다 우리의 학번은 230001 ~ 형식으로 만들고 싶다
+		 */
+
+		/*
+		 * scores 리스트에 저장되어 있는 데이터 중 가장 마지막요소(제일 끝 index 요소)에서 학번을 가져와서 StrStdNum 변수에
+		 * 할당하라
+		 */
+	/*	String strStdNum = "230001";
 		if (scores.size() > 0) {
+			strStdNum = scores.get(scores.size() - 1).stdNum;
+		}else {
+			strStdNum = "230001";
+		}  */
+
+		/*
+		 * 위의 else ... 한 부분을 제거한 코드
+		 * 만약 scores 리스트에 데이터가 하나라도 있으면 마지막요소의 학번을 strStdNum에 할당하고
+		 * 그렇지 않으면 strStdNum의 초기값인 230000을 그대로 유지하라
+		 */
+		
+		String strStdNum = "230000";
+		if(scores.size() > 0) {
 			strStdNum = scores.get(scores.size() - 1).stdNum;
 		}
 		int intStdNum = Integer.valueOf(strStdNum.substring(2));
 		intStdNum++;
-
+		
 		strStdNum = String.format("23%04d", intStdNum);
-
+		
 		int scoreKor = numService.inputNumber(strStdNum + "번의 국어 점수", start, end);
 		int scoreEng = numService.inputNumber(strStdNum + "번의 영어 점수", start, end);
 		int scoreMath = numService.inputNumber(strStdNum + "번의 수학 점수", start, end);
@@ -52,7 +79,7 @@ public class ScoreService {
 		System.out.println("학번\t국어\t영어\t수학\t총점\t평균");
 		Line.dLine(50);
 		for (ScoreDto dto : scores) {
-			System.out.printf("%s\t", dto.stdNum);
+			System.out.printf("%s\t",dto.stdNum);
 			System.out.printf("%3d\t", dto.kor);
 			System.out.printf("%3d\t", dto.eng);
 			System.out.printf("%3d\t", dto.math);
@@ -60,35 +87,4 @@ public class ScoreService {
 			System.out.printf("%5.2f\n", dto.getAvg());
 		}
 	}
-	////////////////////////////////////////////////
-
-	public String stdName = null;
-
-	public int scoreKor = 0;
-	public int scoreEng = 0;
-	public int scoreMath = 0;
-	public int scoreMusic = 0;
-	public int scoreArt = 0;
-	
-	
-	private int scoreTotal = 0;
-	private float scoreAvg = 0.0f;
-
-
-	public int getScoreTotal() {
-		scoreTotal = scoreKor;
-		scoreTotal += scoreEng;
-		scoreTotal += scoreMath;
-		scoreTotal += scoreMusic;
-		scoreTotal += scoreArt;
-		return scoreTotal;
-
-	}
-
-	public float getScoreAvg() {
-		getScoreTotal();
-		scoreAvg = (float) (scoreTotal) / 5;
-		return scoreAvg;
-	}
-
 }
