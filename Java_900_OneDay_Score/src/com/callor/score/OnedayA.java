@@ -1,11 +1,16 @@
 package com.callor.score;
 
-public class OnedayA3 {
+import java.util.ArrayList;
+import java.util.List;
+
+public class OnedayA {
 	public static void main(String[] args) {
 		
+			List<ScoreDto> scores = new ArrayList<ScoreDto>();
+			
+			
 			int STUDENT_LENGTH = 10;
 			int SUBJECT_COUNT = 5;
-			
 			int[] scoreKors = new int[STUDENT_LENGTH];
 			int[] scoreEngs= new int[STUDENT_LENGTH];
 			int[] scoreMaths = new int[STUDENT_LENGTH];
@@ -64,8 +69,18 @@ public class OnedayA3 {
 			System.out.println("=".repeat(80));
 			System.out.println("학번\t 국어\t 영어\t 수학\t 음악\t 미술\t 총점\t 평균");
 			System.out.println("-".repeat(80));
-			for(int i = 0 ; i < STUDENT_LENGTH ; i++) {
-				System.out.printf("%5d\t", i+23001);
+			
+			for(int i = 0 ; i < 10 ; i++) {
+				String stdNum = String.format("%04d", i+23001);
+				ScoreDto scoreDto = new ScoreDto();
+				scoreDto.stdNum = stdNum;
+				scores.add(scoreDto);
+			}
+			
+			int size = scores.size();
+			for(int i = 0 ; i < size ; i++) {
+				ScoreDto dto = scores.get(i);
+				System.out.printf("%s\t", dto.stdNum);
 				System.out.printf("%5d\t", scoreKors[i]);
 				System.out.printf("%5d\t", scoreEngs[i]);
 				System.out.printf("%5d\t", scoreMaths[i]);
