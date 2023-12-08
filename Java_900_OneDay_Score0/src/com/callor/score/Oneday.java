@@ -50,7 +50,6 @@ public class Oneday {
 		int sumTotal = 0;
 		float sumAvg = 0;
 
-		int lineNum = 80;
 		System.out.println("=".repeat(70));
 		System.out.println("* 한울 고교 새별 반 성적 리스트 *");
 		System.out.println("=".repeat(70));
