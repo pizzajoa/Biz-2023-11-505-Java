@@ -44,7 +44,7 @@ public class ScoreDto {
 	}
 	public float getAvg() {
 		getTotal();
-		avg = (float)total /7;
+		avg = (float)total /5;
 		return avg;
 		
 	}

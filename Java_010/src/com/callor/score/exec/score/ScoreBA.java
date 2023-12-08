@@ -1,4 +1,4 @@
-package com.callor.score.exec;
+package com.callor.score.exec.score;
 // 도구
 import com.callor.score.model.ScoreDto;
 import com.callor.score.service.NumberService;

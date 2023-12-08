@@ -1,4 +1,4 @@
-package com.callor.score.exec;
+package com.callor.score.exec.score;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class ScoreDA {
 			ScoreDto scoreDto = new ScoreDto();
 			
 			int scoreKor = numService.inputNumber((i+1) + "번의 국어 점수");
-			int scoreEng = numService.inputNumber((i+1) + " 번의 영어 점수");
+			int scoreEng = numService.inputNumber((i+1) + "번의 영어 점수");
 			int scoreMath = numService.inputNumber((i+1) + "번의 수학 점수");
 			
 			scoreDto.stdNum = stdNum;

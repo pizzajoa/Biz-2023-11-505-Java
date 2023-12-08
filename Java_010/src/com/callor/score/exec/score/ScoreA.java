@@ -1,4 +1,4 @@
-package com.callor.score.exec;
+package com.callor.score.exec.score;
 
 import com.callor.score.model.ScoreDto;
 

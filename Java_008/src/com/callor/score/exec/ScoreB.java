@@ -3,12 +3,12 @@ package com.callor.score.exec;
 import com.callor.score.service.ScoreServiceA;
 
 public class ScoreB {
-	
 	public static void main(String[] args) {
-		ScoreServiceA scoreService = new ScoreServiceA();
+		ScoreServiceA scoreService = new ScoreServiceA(); // 생성자 method
 		scoreService.loadScores();
-		scoreService.printScores();
+		scoreService.printScores(); // printScores() method 생성 후 출력
 	}
+	
 }
 /*
  * data.txt 파일에서 성적을 읽어 score 배열에 저장하기
