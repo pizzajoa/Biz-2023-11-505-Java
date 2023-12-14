@@ -39,6 +39,7 @@ public class StudentServiceImplV1 implements StudentService {
 	 * return
 	 */
 	protected StudentDto selectStdNum(String num) {
+		// TODO: 학생정보 찾기
 		for (StudentDto std : students) {
 			if (std.num.equals(num)) {
 				return std;
@@ -48,25 +49,52 @@ public class StudentServiceImplV1 implements StudentService {
 		return null;
 	}
 
+	protected String newStdNum() {
+
+		String stdNum = "S0001";
+		if (!students.isEmpty()) {
+			// student 리스트의 가장 "마지막요소"의 학번
+			stdNum = students.get(students.size() - 1).num;
+			// num 데이터의 맨 첫번째 한개 글자를 추출하기
+			// S0100 이라면 S만 추출하기
+			String frefix = stdNum.substring(0, 1);
+
+			// S0100 이었다면 0100만 추출하기
+			stdNum = stdNum.substring(1);
+
+			stdNum = String.format("%s%04d", frefix, Integer.valueOf(stdNum) + 1);
+
+		}
+		return stdNum;
+	}
+
 	@Override
 	public boolean inputStudent() {
-
+		// TODO: 학 학생의 정보입력 받기
 		// 키보드로 학생의 개별 정보들(학번,이름...등등)을 입력받고 임시로 저장할 배열
 		// StdIndex enum에 선언된 요소의 개수를 세어서 그 개수를 사용하여 inputStr 배열을 생성하기
 		String[] inputStr = new String[StIndex.values().length];
 		for (StIndex item : StIndex.values()) {
 			while (true) {
 
-				System.out.printf("%s 입력( QUIT = 종료) >> ", item);
+				String newStdNum = this.newStdNum();
+
+				System.out.printf("%s(%s) 입력( QUIT = 종료) >> ", item, newStdNum);
 				String str = keyBD.nextLine();
 				if (str.equals("QUIT"))
 					return false;
 				/*
 				 * 학번을 입력하는 경우 학번의 중복검사를 실시한다
 				 */
-				if (item.toString().equals("학번") && this.selectStdNum(str) != null) {
-					System.out.println("학번 중복");
-					continue;
+				if (item.toString().equals("학번")) {
+					if (str.isBlank()) {
+						System.out.printf("***학번은 %s를 사용함\n", newStdNum);
+
+					}
+					if (this.selectStdNum(str) != null) {
+						System.out.println("학번 중복");
+						continue;
+					}
 				}
 
 				inputStr[item.getIndex()] = str;
@@ -87,6 +115,7 @@ public class StudentServiceImplV1 implements StudentService {
 
 	@Override
 	public void inputStudents() {
+		// TODO: 여러 학생의 정보입력 받기
 		boolean result = true;
 		while (result) {
 			Line.sLine(100);
@@ -105,6 +134,7 @@ public class StudentServiceImplV1 implements StudentService {
 
 	@Override
 	public void printStudent() {
+		// TODO: 학생정보 출력하기
 
 		Line.dLine(100);
 		System.out.println("한울고교 학생정보");
@@ -118,9 +148,15 @@ public class StudentServiceImplV1 implements StudentService {
 			System.out.printf("%s\t", dto.dept);
 			System.out.printf("%s\t", dto.grade);
 			System.out.printf("%s\t", dto.tel);
-			System.out.printf("%s\t", dto.addr);
+			System.out.printf("%s\n", dto.addr);
 
 		}
+
+	}
+
+	@Override
+	public void saveStudent() {
+		// TODO Auto-generated method stub
 
 	}
 

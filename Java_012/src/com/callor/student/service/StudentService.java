@@ -15,9 +15,12 @@ package com.callor.student.service;
 public interface StudentService {
 	// class 를 설계할때 참조할 method 의 prototype 정의
 	// 코드블럭( {} ) 이 없다
-	public boolean inputStudent();
-	public void inputStudents();
-	public void loadStudent();
-	public void printStudent();
+	public boolean inputStudent(); // 한 학생의 정보입력
+	public void inputStudents(); // 여러 학생의 정보입력
+	
+	public void loadStudent(); // 파일에 저장된 학생정보 메모리로 load
+	public void saveStudent(); // 메모리에 보관된 학생정보를 파일에 저장하기
+	
+	public void printStudent(); //메모리에 보관된 학생정보 출력하기
 
 }
