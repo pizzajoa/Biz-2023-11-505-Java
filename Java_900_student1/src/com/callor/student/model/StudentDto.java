@@ -49,7 +49,7 @@ public class StudentDto extends Object{
 
 	@Override
 	public String toString() {
-		return "StudentDto [num=" + num + ", name=" + name + ", dept=" + dept + ", grade=" + grade + ", tel=" + tel
+		return num + ", name=" + name + ", dept=" + dept + ", grade=" + grade + ", tel=" + tel
 				+ ", addr=" + addr + "]";
 	}
 	
